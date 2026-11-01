@@ -1,0 +1,10 @@
+// States are scoped to a property; unequal values are not automatically opposing.
+.decl DesiredState(goal:symbol, property:symbol, value:symbol)
+.decl ButtonEffect(element:symbol, property:symbol, value:symbol)
+.decl Opposite(property:symbol, actual:symbol, desired:symbol)
+.decl Conflicts(element:symbol, goal:symbol)
+.input DesiredState
+.input ButtonEffect
+.input Opposite
+Conflicts(E, G) :- DesiredState(G, P, D), ButtonEffect(E, P, A), Opposite(P, A, D).
+.output Conflicts
